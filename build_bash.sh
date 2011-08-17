@@ -52,7 +52,7 @@ MAKE_DISTCLEAN()
 {
 	echo "=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]"
 	local T1=$(date +%s)
-	echo "Begin make distclean..." && echo ""
+	echo "Begin make distclean for $1..." && echo ""
 	rm -f arm_"$1"_stripped
 	pushd $1 > /dev/null
 		if [ "$VERBOSE" = "y" ] ; then
@@ -60,10 +60,10 @@ MAKE_DISTCLEAN()
 		else
 			make distclean 2>&1 >bash.distclean.out
 		fi
-		rm -f Makefile
+#		rm -f Makefile
 	popd > /dev/null
 	local T2=$(date +%s)
-	echo "" && echo "make distclean took $(($T2 - $T1)) seconds."
+	echo "" && echo "make distclean for $1 took $(($T2 - $T1)) seconds."
 	echo "=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]"
 	SPACER
 }
@@ -71,7 +71,7 @@ RUN_CONFIGURE()
 {
 	echo "=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]"
 	local T1=$(date +%s)
-	echo "Begin configure..." && echo ""
+	echo "Begin configure for $1..." && echo ""
 	pushd $1 > /dev/null
 		if [ "$VERBOSE" = "y" ] ; then
 			sh configure --build=i686-pc-linux-gnu --host=arm-none-linux-gnueabi --target=arm-none-linux-gnueabi --enable-static-link --without-bash-malloc 2>&1 | tee bash.configure.out
@@ -80,7 +80,7 @@ RUN_CONFIGURE()
 		fi
 	popd > /dev/null
 	local T2=$(date +%s)
-	echo "" && echo "Configure took $(($T2 - $T1)) seconds."
+	echo "" && echo "Configure for $1 took $(($T2 - $T1)) seconds."
 	echo "=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]"
 	SPACER
 }
@@ -89,9 +89,9 @@ STRIP_BASH()
 	if [ -f bash ] ; then
 		echo "Bash found, stripping for size..."
 		VERSION=$(strings bash | egrep -Ei '^.+Bash\sversion\s.+' | egrep -oEi '[0-9]+\.[0-9]+\.[0-9]+\([0-9]+\)')
-		cp -f bash arm_bash-"$VERSION"
-		$CC_STRIP -d --strip-unneeded arm_bash-"$VERSION"
-		mv -f arm_bash-"$VERSION" ../arm_bash-"$VERSION"
+		cp -f bash android_bash-"$VERSION"
+		$CC_STRIP -d --strip-unneeded android_bash-"$VERSION"
+		mv -f android_bash-"$VERSION" ../android_bash-"$VERSION"
 	else
 		ERR_MSG="ERROR:: Bash was not found!"
 		FATAL_ERROR
@@ -101,7 +101,7 @@ BUILD_BASH()
 {
 	echo "=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]"
 	local T1=$(date +%s)
-	echo "Begin building bash..." && echo ""
+	echo "Begin building $1..." && echo ""
 	pushd $1 > /dev/null
 		if [ "$VERBOSE" = "y" ] ; then
 			make V=1 -j"$THREADS" 2>&1 | tee bash.make.out
@@ -111,7 +111,7 @@ BUILD_BASH()
 		STRIP_BASH
 	popd > /dev/null
 	local T2=$(date +%s)
-	echo "" && echo "Building bash took $(($T2 - $T1)) seconds."
+	echo "" && echo "Building $1 took $(($T2 - $T1)) seconds."
 	echo "=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]"
 	SPACER
 }
