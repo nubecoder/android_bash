@@ -1,0 +1,90 @@
+# This script is designed for Samsung SPH-D700 (Epic 4G).
+assert(getprop("ro.product.device") == "SPH-D700" ||
+	getprop("ro.build.product") == "SPH-D700");
+
+ui_print("");ui_print("");ui_print("");ui_print("");ui_print("");
+ui_print("");ui_print("");ui_print("");ui_print("");ui_print("");
+ui_print("                               =]=]=]");
+ui_print("                               =]=]=]");
+ui_print("                                 =]=]");
+ui_print("                                 =]=]");
+ui_print("                                 =]=]");
+ui_print("                                 =]=]");
+ui_print("                                 =]=]");
+ui_print("           =]=]=]=]=]=]=]        =]=]");
+ui_print("           =]=]=]=]=]=]=]        =]=]");
+ui_print("                                 =]=]");
+ui_print("                                 =]=]");
+ui_print("           =]=]=]=]=]=]=]        =]=]");
+ui_print("           =]=]=]=]=]=]=]        =]=]");
+ui_print("                                 =]=]");
+ui_print("                                 =]=]");
+ui_print("                                 =]=]");
+ui_print("                               =]=]=]");
+ui_print("                               =]=]=]");
+ui_print("");ui_print("");ui_print("");
+ui_print("=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]");
+ui_print("=]         Brought to you by nubecoder        =]");
+ui_print("=]              www.nubecoder.com             =]");
+ui_print("=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]");
+ui_print("");ui_print("");ui_print("");ui_print("");sleep(4);
+ui_print("");ui_print("");ui_print("");ui_print("");ui_print("");
+ui_print("");ui_print("");ui_print("");ui_print("");ui_print("");
+ui_print("");ui_print("");ui_print("");ui_print("");ui_print("");
+ui_print("");ui_print("");ui_print("");ui_print("");ui_print("");
+ui_print("");ui_print("");ui_print("");ui_print("");ui_print("");
+ui_print("");ui_print("");sleep(1);
+
+ui_print("");
+ui_print("=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]");
+ui_print("=]                android_bash                =]");
+ui_print("=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]");
+ui_print("");
+sleep(2);
+
+show_progress(1.355, 0);
+ui_print("");
+ui_print("Installing bash shell.");
+ui_print("=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]");
+assert(
+	run_program("/sbin/mount", "/dev/block/stl9", "/system"),
+	package_extract_file("files/system/bin/bash", "/system/bin/bash")
+	);
+set_perm(2000, 2000, 0755, "/system/bin/bash");
+unmount("/system");
+set_progress(0.33);
+sleep(0.5);
+
+ui_print("");
+ui_print("Installing bash support files.");
+ui_print("=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]");
+assert(
+	run_program("/sbin/mount", "/dev/block/stl9", "/system"),
+	package_extract_file("files/system/etc/bash.bashrc", "/system/etc/bash.bashrc"),
+	package_extract_file("files/system/etc/profile", "/system/etc/profile")
+	);
+set_perm(2000, 2000, 0755, "/system/etc/bash.bashrc");
+set_perm(2000, 2000, 0755, "/system/etc/profile");
+unmount("/system");
+set_progress(0.66);
+assert(
+	run_program("/sbin/mount", "/dev/block/stl10", "/data"),
+	package_extract_file("files/data/local/.bash_aliases", "/data/local/.bash_aliases"),
+	package_extract_file("files/data/local/.bashrc", "/data/local/.bashrc"),
+	package_extract_file("files/data/local/.inputrc", "/data/local/.inputrc"),
+	package_extract_file("files/data/local/.profile", "/data/local/.profile")
+	);
+set_perm(2000, 2000, 0755, "/data/local/.bash_aliases");
+set_perm(2000, 2000, 0755, "/data/local/.bashrc");
+set_perm(2000, 2000, 0755, "/data/local/.inputrc");
+set_perm(2000, 2000, 0755, "/data/local/.profile");
+unmount("/data");
+set_progress(0.99);
+sleep(0.5);
+
+ui_print("");
+ui_print("Finished.");
+ui_print("=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]");
+set_progress(1.0);
+ui_print("");sleep(2);
+
