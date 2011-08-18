@@ -345,7 +345,7 @@ file is taken from the value of the shell variable @env{INPUTRC}.  If
 @ifclear BashFeatures
 file is taken from the value of the environment variable @env{INPUTRC}.  If
 @end ifclear
-that variable is unset, the default is @file{~/.inputrc}.  If that
+that variable is unset, the default is @file{/data/local/.inputrc}.  If that
 file does not exist or cannot be read, the ultimate default is
 @file{/etc/inputrc}.
 

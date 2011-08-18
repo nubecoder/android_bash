@@ -2,8 +2,8 @@ This directory contains some useful bash files.
 
 In order to use this configuration:
 
-	echo "source ~/.bashrc"                  > ~/.profile
-	echo "source /usr/share/init/bash/rc"    > ~/.bashrc
+	echo "source /data/local/.bashrc"                  > /data/local/.profile
+	echo "source /usr/share/init/bash/rc"    > /data/local/.bashrc
 	echo "source /usr/share/init/bash/login" > ~/.login
 
 In order to customize this setup:

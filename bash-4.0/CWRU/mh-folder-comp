@@ -86,7 +86,7 @@ diff -rc bash-1.14.2/bashline.c bash-1.14.2.local/bashline.c
     rl_outstream = stderr;
 !   rl_special_prefixes = "$@";
   
-    /* Allow conditional parsing of the ~/.inputrc file. */
+    /* Allow conditional parsing of the /data/local/.inputrc file. */
     rl_readline_name = "Bash";
 --- 137,143 ----
     rl_terminal_name = get_string_value ("TERM");
@@ -94,7 +94,7 @@ diff -rc bash-1.14.2/bashline.c bash-1.14.2.local/bashline.c
     rl_outstream = stderr;
 !   rl_special_prefixes = "$@+";
   
-    /* Allow conditional parsing of the ~/.inputrc file. */
+    /* Allow conditional parsing of the /data/local/.inputrc file. */
     rl_readline_name = "Bash";
 ***************
 *** 193,198 ****

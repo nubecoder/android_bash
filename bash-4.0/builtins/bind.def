@@ -30,7 +30,7 @@ Set Readline key bindings and variables.
 
 Bind a key sequence to a Readline function or a macro, or set a
 Readline variable.  The non-option argument syntax is equivalent to
-that found in ~/.inputrc, but must be passed as a single argument:
+that found in /data/local/.inputrc, but must be passed as a single argument:
 e.g., bind '"\C-x\C-r": re-read-init-file'.
 
 Options:

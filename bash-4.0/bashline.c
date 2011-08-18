@@ -365,7 +365,7 @@ initialize_readline ()
   rl_instream = stdin;
   rl_outstream = stderr;
 
-  /* Allow conditional parsing of the ~/.inputrc file. */
+  /* Allow conditional parsing of the /data/local/.inputrc file. */
   rl_readline_name = "Bash";
 
   /* Add bindable names before calling rl_initialize so they may be
@@ -529,7 +529,7 @@ initialize_readline ()
 
 #if 0
   /* This is superfluous and makes it impossible to use tab completion in
-     vi mode even when explicitly binding it in ~/.inputrc.  sv_strict_posix()
+     vi mode even when explicitly binding it in /data/local/.inputrc.  sv_strict_posix()
      should already have called posix_readline_initialize() when
      posixly_correct was set. */
   if (posixly_correct)

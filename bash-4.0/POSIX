@@ -40,7 +40,7 @@ The following list is what's changed when `POSIX mode' is in effect:
   8. Tilde expansion is only performed on assignments preceding a
      command name, rather than on all assignment statements on the line.
 
-  9. The default history file is `~/.sh_history' (this is the default
+  9. The default history file is `/data/local/.sh_history' (this is the default
      value of `$HISTFILE').
 
  10. The output of `kill -l' prints all the signal names on a single

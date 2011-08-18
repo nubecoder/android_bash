@@ -820,7 +820,7 @@ rl_re_read_init_file (count, ignore)
    to the first non-null filename from this list:
      1. the filename used for the previous call
      2. the value of the shell variable `INPUTRC'
-     3. ~/.inputrc
+     3. /data/local/.inputrc
      4. /etc/inputrc
    If the file existed and could be opened and read, 0 is returned,
    otherwise errno is returned. */
@@ -845,7 +845,7 @@ rl_read_init_file (filename)
 #if defined (__MSDOS__)
   if (_rl_read_init_file (filename, 0) == 0)
     return 0;
-  filename = "~/_inputrc";
+  filename = "/data/local/.inputrc";
 #endif
   return (_rl_read_init_file (filename, 0));
 }

@@ -143,7 +143,7 @@ Platform-Specific Configuration and Operation Notes
 8.  Some people have asked about binding all of the keys in a PC-keyboard-
     style numeric keypad to readline functions.  Here's something I
     received from the gnu-win32 list that may help.  Insert the following
-    lines into ~/.inputrc:
+    lines into /data/local/.inputrc:
 
 # home key
 "\e[1~":beginning-of-line
