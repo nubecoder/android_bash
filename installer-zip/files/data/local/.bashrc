@@ -1,6 +1,5 @@
 # /data/local/.bashrc: executed by bash(1) for non-login shells.
 #
-PATH="/sbin:/system/bin:/system/xbin:/system/sbin"
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -24,9 +23,11 @@ HISTFILESIZE=1048576
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
+# NOTE:: !! not sure this works on android
 shopt -s checkwinsize
 
 # make less more friendly for non-text input files, see lesspipe(1)
+# NOTE:: !! not sure this works on android.
 #[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # Command prompt
@@ -49,6 +50,4 @@ PS4='+ '
 if [ -f /data/local/.bash_aliases ]; then
 	. /data/local/.bash_aliases
 fi
-
-export PATH=$PATH
 

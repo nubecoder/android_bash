@@ -1,7 +1,7 @@
 # /etc/bash.bashrc: executed by bash(1) for non-login shells.
 #
-HOME="/data/local/"
-PATH="/sbin:/system/bin:/system/xbin:/system/sbin"
+export HOME="/data/local"
+export PATH="/sbin:/bin:/system/bin:/system/xbin:/data/local/tmp"
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -40,7 +40,4 @@ bakpur='\e[45m'   # Purple
 bakcyn='\e[46m'   # Cyan
 bakwht='\e[47m'   # White
 txtrst='\e[0m'    # Text Reset
-
-export HOME=$HOME
-export PATH=.:$PATH
 

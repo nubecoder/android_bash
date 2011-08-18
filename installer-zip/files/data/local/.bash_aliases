@@ -5,7 +5,7 @@
 #
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
-# NOTE:: not sure this would work in android
+# NOTE:: !! not sure this works in android
 #alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Set up some aliases to cover toolbox with the nice busybox equivalents of its commands

@@ -8,7 +8,8 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-HOME="/data/local"
+export HOME="/data/local"
+PATH="/sbin:/bin:/system/bin:/system/xbin:/data/local/tmp"
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
@@ -23,6 +24,5 @@ if [ -d "$HOME/bin" ] ; then
 	PATH="$HOME/bin:$PATH"
 fi
 
-export PATH=.:$PATH
-export HOME=$HOME
+export PATH=$PATH
 
