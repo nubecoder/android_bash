@@ -37,7 +37,7 @@ Argument `-n' means to read all history lines not already read
 from the history file and append them to the history list.
 
 If FILENAME is given, then that is used as the history file else
-if $HISTFILE has a value, that is used, else ~/.bash_history.
+if $HISTFILE has a value, that is used, else /data/local/.bash_history.
 If the -s option is supplied, the non-option ARGs are appended to
 the history list as a single entry.  The -p option means to perform
 history expansion on each ARG and display the result, without storing

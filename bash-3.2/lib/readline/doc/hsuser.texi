@@ -80,7 +80,7 @@ values of the shell variables
 @env{HISTIGNORE} and @env{HISTCONTROL}.
 
 When the shell starts up, the history is initialized from the
-file named by the @env{HISTFILE} variable (default @file{~/.bash_history}).
+file named by the @env{HISTFILE} variable (default @file{/data/local/.bash_history}).
 The file named by the value of @env{HISTFILE} is truncated, if
 necessary, to contain no more than the number of lines specified by
 the value of the @env{HISTFILESIZE} variable.

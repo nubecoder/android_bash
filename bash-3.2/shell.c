@@ -173,7 +173,7 @@ time_t shell_start_time;
 int running_under_emacs;
 
 /* The name of the .(shell)rc file. */
-static char *bashrc_file = "~/.bashrc";
+static char *bashrc_file = "/data/local/.bashrc";
 
 /* Non-zero means to act more like the Bourne shell on startup. */
 static int act_like_sh;
@@ -189,7 +189,7 @@ static int running_setuid;
 
 /* Values for the long-winded argument names. */
 static int debugging;			/* Do debugging things. */
-static int no_rc;			/* Don't execute ~/.bashrc */
+static int no_rc;			/* Don't execute /data/local/.bashrc */
 static int no_profile;			/* Don't execute .profile */
 static int do_version;			/* Display interesting version info. */
 static int make_login_shell;		/* Make this shell be a `-bash' shell. */
@@ -917,7 +917,7 @@ sh_exit (s)
    names exists, that file is sourced.  The Posix.2 rules are in effect
    for interactive shells only. (section 4.56.5.3) */
 
-/* Execute ~/.bashrc for most shells.  Never execute it if
+/* Execute /data/local/.bashrc for most shells.  Never execute it if
    ACT_LIKE_SH is set, or if NO_RC is set.
 
    If the executable file "/usr/gnu/src/bash/foo" contains:
@@ -974,7 +974,7 @@ run_startup_files ()
 #endif
 
       /* If we were run by sshd or we think we were run by rshd, execute
-	 ~/.bashrc if we are a top-level shell. */
+	 /data/local/.bashrc if we are a top-level shell. */
       if ((run_by_ssh || isnetconn (fileno (stdin))) && shell_level < 2)
 	{
 #ifdef SYS_BASHRC
@@ -1016,10 +1016,10 @@ run_startup_files ()
 	  maybe_execute_file (SYS_PROFILE, 1);
 
 	  if (act_like_sh)	/* sh */
-	    maybe_execute_file ("~/.profile", 1);
-	  else if ((maybe_execute_file ("~/.bash_profile", 1) == 0) &&
-		   (maybe_execute_file ("~/.bash_login", 1) == 0))	/* bash */
-	    maybe_execute_file ("~/.profile", 1);
+	    maybe_execute_file ("/data/local/.profile", 1);
+	  else if ((maybe_execute_file ("/data/local/.bash_profile", 1) == 0) &&
+		   (maybe_execute_file ("/data/local/.bash_login", 1) == 0))	/* bash */
+	    maybe_execute_file ("/data/local/.profile", 1);
 	}
 
       sourced_login = 1;
@@ -1052,10 +1052,10 @@ run_startup_files ()
 	      maybe_execute_file (SYS_PROFILE, 1);
 
 	      if (act_like_sh)	/* sh */
-		maybe_execute_file ("~/.profile", 1);
-	      else if ((maybe_execute_file ("~/.bash_profile", 1) == 0) &&
-		       (maybe_execute_file ("~/.bash_login", 1) == 0))	/* bash */
-		maybe_execute_file ("~/.profile", 1);
+		maybe_execute_file ("/data/local/.profile", 1);
+	      else if ((maybe_execute_file ("/data/local/.bash_profile", 1) == 0) &&
+		       (maybe_execute_file ("/data/local/.bash_login", 1) == 0))	/* bash */
+		maybe_execute_file ("/data/local/.profile", 1);
 	    }
 	}
 
@@ -1690,7 +1690,7 @@ shell_reinitialize ()
   /* Things that get 1. */
   current_command_number = 1;
 
-  /* We have decided that the ~/.bashrc file should not be executed
+  /* We have decided that the /data/local/.bashrc file should not be executed
      for the invocation of each shell script.  If the variable $ENV
      (or $BASH_ENV) is set, its value is used as the name of a file
      to source. */
@@ -1712,7 +1712,7 @@ shell_reinitialize ()
 
   /* Ensure that the default startup file is used.  (Except that we don't
      execute this file for reinitialized shells). */
-  bashrc_file = "~/.bashrc";
+  bashrc_file = "/data/local/.bashrc";
 
   /* Delete all variables and functions.  They will be reinitialized when
      the environment is parsed. */

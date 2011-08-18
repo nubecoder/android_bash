@@ -39,7 +39,7 @@ fi
 # Set ignoreeof if you don't want EOF as the sole input to the shell to
 # immediately signal a quit condition.  This only happens at the start
 # of a line if the line is empty, and you haven't just deleted a character
-# with C-d.  I turn this on in ~/.bash_profile so that only login shells
+# with C-d.  I turn this on in /data/local/.bash_profile so that only login shells
 # have the right to be obnoxious.
 # set -o ignoreeof
 

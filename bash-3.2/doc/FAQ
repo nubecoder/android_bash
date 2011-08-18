@@ -258,18 +258,18 @@ If your login shell is sh or ksh, you have to do two things.
 
 First, create an empty file in your home directory named `.bash_profile'.
 The existence of this file will prevent the exec'd bash from trying to
-read ~/.profile, and re-execing itself over and over again.  ~/.bash_profile
+read /data/local/.profile, and re-execing itself over and over again.  /data/local/.bash_profile
 is the first file bash tries to read initialization commands from when
 it is invoked as a login shell.
 
-Next, add a line similar to the above to ~/.profile:
+Next, add a line similar to the above to /data/local/.profile:
 
 	[ -f /usr/gnu/bin/bash ] && [ -x /usr/gnu/bin/bash ] && \
 		exec /usr/gnu/bin/bash --login
 
 This will cause login shells to replace themselves with bash running as
 a login shell.  Once you have this working, you can copy your initialization
-code from ~/.profile to ~/.bash_profile.
+code from /data/local/.profile to /data/local/.bash_profile.
 
 I have received word that the recipe supplied above is insufficient for
 machines running CDE.  CDE has a maze of twisty little startup files, all
@@ -299,13 +299,13 @@ CDE by testing the value of the DT variable:
 	fi
 
 If CDE starts its shells non-interactively during login, the login shell
-startup files (~/.profile, ~/.bash_profile) will not be sourced at login.
+startup files (/data/local/.profile, /data/local/.bash_profile) will not be sourced at login.
 To get around this problem, append a line similar to the following to your
 ~/.dtprofile:
 
 	BASH_ENV=${HOME}/.bash_profile ; export BASH_ENV
 
-and add the following line to the beginning of ~/.bash_profile:
+and add the following line to the beginning of /data/local/.bash_profile:
 
 	unset BASH_ENV
 
@@ -709,7 +709,7 @@ Things bash has that sh does not:
 		  unset -f/-v, ulimit -i/-m/-p/-q/-u/-x,
 		  type -a/-p/-t/-f/-P, suspend -f, kill -n,
 		  test -o optname/s1 == s2/s1 < s2/s1 > s2/-nt/-ot/-ef/-O/-G/-S
-	bash reads ~/.bashrc for interactive shells, $ENV for non-interactive
+	bash reads /data/local/.bashrc for interactive shells, $ENV for non-interactive
 	bash restricted shell mode is more extensive
 	bash allows functions and variables with the same name
 	brace expansion
@@ -1032,7 +1032,7 @@ The only thing that needs to be done is to quote $PWD:
   
 	cd () { command cd "$@"; echo "$PWD" ; }
   
-Merge the edited file into your ~/.bashrc.
+Merge the edited file into your /data/local/.bashrc.
 
 There is an additional, more ambitious, script in
 examples/misc/cshtobash that attempts to convert your entire csh
@@ -1546,7 +1546,7 @@ for emacs mode editing, and then screwed all the vi users by setting
 INPUTRC to /etc/inputrc in /etc/profile.
 
 The short fix is to do one of the following: remove or rename
-/etc/inputrc, set INPUTRC=~/.inputrc in ~/.bashrc (or .bash_profile,
+/etc/inputrc, set INPUTRC=/data/local/.inputrc in /data/local/.bashrc (or .bash_profile,
 but make sure you export it if you do), remove the assignment to
 INPUTRC from /etc/profile, add
 
@@ -1608,7 +1608,7 @@ this.  These variables can be set in your .inputrc or using the bash
 	bash$ bind 'set output-meta on'
 
 The `set' commands between the single quotes may also be placed
-in ~/.inputrc.
+in /data/local/.inputrc.
 
 The script examples/scripts.noah/meta.bash encapsulates the bind
 commands in a shell function.

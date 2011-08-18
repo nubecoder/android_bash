@@ -1,4 +1,4 @@
-# My ~/.inputrc file is in -*- text -*- for easy editing with Emacs.
+# My /data/local/.inputrc file is in -*- text -*- for easy editing with Emacs.
 #
 # Notice the various bindings which are conditionalized depending
 # on which program is running, or what terminal is active.
