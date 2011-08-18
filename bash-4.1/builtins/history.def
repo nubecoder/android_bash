@@ -45,7 +45,7 @@ Options:
   -s	append the ARGs to the history list as a single entry
 
 If FILENAME is given, it is used as the history file.  Otherwise,
-if $HISTFILE has a value, that is used, else ~/.bash_history.
+if $HISTFILE has a value, that is used, else /data/local/.bash_history.
 
 If the $HISTTIMEFORMAT variable is set and not null, its value is used
 as a format string for strftime(3) to print the time stamp associated

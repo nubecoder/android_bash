@@ -2657,7 +2657,7 @@ a.  Fixed a problem when parsing a POSIX.2 character class name while
     evaluating a bracket expression containing multibyte characters.
 
 b.  Changed the help text for `bind' to make it clear that any command
-    that may be placed in ~/.inputrc is a valid argument to `bind'.
+    that may be placed in /data/local/.inputrc is a valid argument to `bind'.
 
 c.  Added `help' builtin entries for `((', `[[', and arithmetic for.
 
@@ -4747,7 +4747,7 @@ a.  Parentheses matching is now always compiled into readline, and enabled
     or disabled when the value of the `blink-matching-paren' variable is
     changed.
 
-b.  MS-DOS systems now use ~/_inputrc as the last-ditch inputrc filename.
+b.  MS-DOS systems now use /data/local/.inputrc as the last-ditch inputrc filename.
 
 c.  MS-DOS systems now use ~/_history as the default history file.
 
@@ -6193,7 +6193,7 @@ l.  The values inserted into the prompt by the \w and \W escape sequences
 
 m.  An interactive shell invoked as `sh' now reads and executes commands
     from the file named by $ENV when it starts up.  If it's a login shell,
-    it does this after reading /etc/profile and ~/.profile.
+    it does this after reading /etc/profile and /data/local/.profile.
 
 n.  The file named by $ENV is never read by non-interactive shells.
 

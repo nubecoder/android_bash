@@ -4970,7 +4970,7 @@ not tested, and are added to the history regardless of the value of
 
 @item HISTFILE
 The name of the file to which the command history is saved.  The
-default value is @file{~/.bash_history}.
+default value is @file{/data/local/.bash_history}.
 
 @item HISTFILESIZE
 The maximum number of lines contained in the history file.  When this
@@ -5045,7 +5045,7 @@ input to the shell.  This is only in effect for interactive shells.
 
 @item INPUTRC
 The name of the Readline initialization file, overriding the default
-of @file{~/.inputrc}.
+of @file{/data/local/.inputrc}.
 
 @item LANG  
 Used to determine the locale category for any category not specifically
@@ -5312,7 +5312,7 @@ Display a usage message on standard output and exit successfully.
 
 @item --init-file @var{filename}
 @itemx --rcfile @var{filename}
-Execute commands from @var{filename} (instead of @file{~/.bashrc})
+Execute commands from @var{filename} (instead of @file{/data/local/.bashrc})
 in an interactive shell.
 
 @item --login
@@ -5325,11 +5325,11 @@ to read  command lines when the shell is interactive.
 @item --noprofile
 Don't load the system-wide startup file @file{/etc/profile}
 or any of the personal initialization files
-@file{~/.bash_profile}, @file{~/.bash_login}, or @file{~/.profile}
+@file{/data/local/.bash_profile}, @file{/data/local/.bash_login}, or @file{/data/local/.profile}
 when Bash is invoked as a login shell.
 
 @item --norc
-Don't read the @file{~/.bashrc} initialization file in an
+Don't read the @file{/data/local/.bashrc} initialization file in an
 interactive shell.  This is on by default if the shell is
 invoked as @code{sh}.
 
@@ -5449,8 +5449,8 @@ Interactive shells are described in @ref{Interactive Shells}.
 When Bash is invoked as an interactive login shell, or as a
 non-interactive shell with the @option{--login} option, it first reads and
 executes commands from the file @file{/etc/profile}, if that file exists.
-After reading that file, it looks for @file{~/.bash_profile},
-@file{~/.bash_login}, and @file{~/.profile}, in that order, and reads
+After reading that file, it looks for @file{/data/local/.bash_profile},
+@file{/data/local/.bash_login}, and @file{/data/local/.profile}, in that order, and reads
 and executes commands from the first one that exists and is readable.
 The @option{--noprofile} option may be used when the shell is started to
 inhibit this behavior.
@@ -5461,14 +5461,14 @@ the file @file{~/.bash_logout}, if it exists.
 @subsubheading Invoked as an interactive non-login shell
 
 When an interactive shell that is not a login shell is started, Bash
-reads and executes commands from @file{~/.bashrc}, if that file exists.
+reads and executes commands from @file{/data/local/.bashrc}, if that file exists.
 This may be inhibited by using the @option{--norc} option.
 The @option{--rcfile @var{file}} option will force Bash to read and
-execute commands from @var{file} instead of @file{~/.bashrc}.
+execute commands from @var{file} instead of @file{/data/local/.bashrc}.
 
-So, typically, your @file{~/.bash_profile} contains the line
+So, typically, your @file{/data/local/.bash_profile} contains the line
 @example
-@code{if [ -f ~/.bashrc ]; then . ~/.bashrc; fi}
+@code{if [ -f /data/local/.bashrc ]; then . /data/local/.bashrc; fi}
 @end example
 @noindent
 after (or before) any login-specific initializations.
@@ -5499,7 +5499,7 @@ possible, while conforming to the @sc{posix} standard as well.
 
 When invoked as an interactive login shell, or as a non-interactive
 shell with the @option{--login} option, it first attempts to read
-and execute commands from @file{/etc/profile} and @file{~/.profile}, in
+and execute commands from @file{/etc/profile} and @file{/data/local/.profile}, in
 that order.
 The @option{--noprofile} option may be used to inhibit this behavior.
 When invoked as an interactive shell with the name @code{sh}, Bash
@@ -5530,7 +5530,7 @@ Bash attempts to determine when it is being run with its standard input
 connected to a a network connection, as if by the remote shell
 daemon, usually @code{rshd}, or the secure shell daemon @code{sshd}.
 If Bash determines it is being run in
-this fashion, it reads and executes commands from @file{~/.bashrc}, if that
+this fashion, it reads and executes commands from @file{/data/local/.bashrc}, if that
 file exists and is readable.
 It will not do this if invoked as @code{sh}.
 The @option{--norc} option may be used to inhibit this behavior, and the
@@ -6420,7 +6420,7 @@ Tilde expansion is only performed on assignments preceding a command
 name, rather than on all assignment statements on the line.
 
 @item
-The default history file is @file{~/.sh_history} (this is the
+The default history file is @file{/data/local/.sh_history} (this is the
 default value of @env{$HISTFILE}).
 
 @item

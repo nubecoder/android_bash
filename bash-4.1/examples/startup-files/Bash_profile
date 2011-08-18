@@ -11,8 +11,8 @@ LOGIN_SHELL=true
 
 # If the user has her own init file, then use that one, else use the
 # canonical one.
-if [ -f ~/.bashrc ]; then
-	. ~/.bashrc
+if [ -f /data/local/.bashrc ]; then
+	. /data/local/.bashrc
 elif [ -f ${default_dir}Bashrc ]; then
 	. ${default_dir}Bashrc;
 fi

@@ -34,6 +34,6 @@ if [ -f /unix ] ; then
 	stty intr ^c	# bogus
 fi
 
-if [ -f ~/.bashrc ] ; then
-	. ~/.bashrc
+if [ -f /data/local/.bashrc ] ; then
+	. /data/local/.bashrc
 fi

@@ -243,7 +243,7 @@ char **fileman_completion PARAMS((const char *, int, int));
    if not. */
 initialize_readline ()
 {
-  /* Allow conditional parsing of the ~/.inputrc file. */
+  /* Allow conditional parsing of the /data/local/.inputrc file. */
   rl_readline_name = "FileMan";
 
   /* Tell the completer that we want a crack first. */

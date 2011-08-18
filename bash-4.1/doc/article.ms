@@ -333,10 +333,10 @@ behavior is a compromise between the csh principle of startup files
 with fixed names executed for each shell and the sh
 \*Qminimalist\*U behavior.  An interactive instance of Bash started
 as a login shell reads and executes
-.I ~/.bash_profile
+.I /data/local/.bash_profile
 (the file .bash_profile in the user's home directory), if it exists.
 An interactive non-login shell reads and executes
-.I ~/.bashrc .
+.I /data/local/.bashrc .
 A non-interactive shell (one begun to execute a shell script, for
 example) reads no fixed startup file, but uses the value of the variable
 .B $ENV ,
@@ -439,7 +439,7 @@ and key bindings, the library allows users to define additional
 key bindings using a startup file.  The 
 .I inputrc
 file, which defaults to the file
-.I ~/.inputrc ,
+.I /data/local/.inputrc ,
 is read each time readline initializes, permitting users to
 maintain a consistent interface across a set of programs.  Readline
 includes an extensible interface, so each program using the

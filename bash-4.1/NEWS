@@ -1022,7 +1022,7 @@ a.  Parentheses matching is now always compiled into readline, and enabled
     or disabled when the value of the `blink-matching-paren' variable is
     changed.
 
-b.  MS-DOS systems now use ~/_inputrc as the last-ditch inputrc filename.
+b.  MS-DOS systems now use /data/local/.inputrc as the last-ditch inputrc filename.
 
 c.  MS-DOS systems now use ~/_history as the default history file.
 
@@ -1270,7 +1270,7 @@ f.  The `--help' and `--version' long options now work as the GNU coding
 g.  If invoked as `sh', bash now enters posix mode after reading the
     startup files, and reads and executes commands from the file named
     by $ENV if interactive (as POSIX.2 specifies).  A login shell invoked
-    as `sh' reads $ENV after /etc/profile and ~/.profile.
+    as `sh' reads $ENV after /etc/profile and /data/local/.profile.
 
 h.  There is a new reserved word, `time', for timing pipelines, builtin
     commands, and shell functions.  It uses the value of the TIMEFORMAT

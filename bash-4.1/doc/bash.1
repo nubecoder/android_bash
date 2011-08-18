@@ -185,7 +185,7 @@ Display a usage message on standard output and exit successfully.
 Execute commands from
 .I file
 instead of the standard personal initialization file
-.I ~/.bashrc
+.I /data/local/.bashrc
 if the shell is interactive (see
 .SM
 .B INVOCATION
@@ -203,10 +203,10 @@ library to read command lines when the shell is interactive.
 Do not read either the system-wide startup file
 .FN /etc/profile
 or any of the personal initialization files
-.IR ~/.bash_profile ,
-.IR ~/.bash_login ,
+.IR /data/local/.bash_profile ,
+.IR /data/local/.bash_login ,
 or
-.IR ~/.profile .
+.IR /data/local/.profile .
 By default,
 .B bash
 reads these files when it is invoked as a login shell (see
@@ -216,7 +216,7 @@ below).
 .TP
 .B \-\-norc
 Do not read and execute the personal initialization file
-.I ~/.bashrc
+.I /data/local/.bashrc
 if the shell is interactive.
 This option is on by default if the shell is invoked as
 .BR sh .
@@ -309,8 +309,8 @@ is invoked as an interactive login shell, or as a non-interactive shell
 with the \fB\-\-login\fP option, it first reads and
 executes commands from the file \fI/etc/profile\fP, if that
 file exists.
-After reading that file, it looks for \fI~/.bash_profile\fP,
-\fI~/.bash_login\fP, and \fI~/.profile\fP, in that order, and reads
+After reading that file, it looks for \fI/data/local/.bash_profile\fP,
+\fI/data/local/.bash_login\fP, and \fI/data/local/.profile\fP, in that order, and reads
 and executes commands from the first one that exists and is readable.
 The
 .B \-\-noprofile
@@ -323,13 +323,13 @@ exists.
 .PP
 When an interactive shell that is not a login shell is started,
 .B bash
-reads and executes commands from \fI~/.bashrc\fP, if that file exists.
+reads and executes commands from \fI/data/local/.bashrc\fP, if that file exists.
 This may be inhibited by using the
 .B \-\-norc
 option.
 The \fB\-\-rcfile\fP \fIfile\fP option will force
 .B bash
-to read and execute commands from \fIfile\fP instead of \fI~/.bashrc\fP.
+to read and execute commands from \fIfile\fP instead of \fI/data/local/.bashrc\fP.
 .PP
 When
 .B bash
@@ -365,7 +365,7 @@ shell with the \fB\-\-login\fP option, it first attempts to
 read and execute commands from
 .I /etc/profile
 and
-.IR ~/.profile ,
+.IR /data/local/.profile ,
 in that order.
 The
 .B \-\-noprofile
@@ -415,7 +415,7 @@ daemon, usually \fIrshd\fP, or the secure shell daemon \fIsshd\fP.
 If
 .B bash
 determines it is being run in this fashion, it reads and executes
-commands from \fI~/.bashrc\fP, if that file exists and is readable.
+commands from \fI/data/local/.bashrc\fP, if that file exists and is readable.
 It will not do this if invoked as \fBsh\fP.
 The
 .B \-\-norc
@@ -1756,7 +1756,7 @@ below.
 If this parameter is set when \fBbash\fP is executing a shell script,
 its value is interpreted as a filename containing commands to
 initialize the shell, as in
-.IR ~/.bashrc .
+.IR /data/local/.bashrc .
 The value of
 .SM
 .B BASH_ENV
@@ -1881,7 +1881,7 @@ not tested, and are added to the history regardless of the value of
 The name of the file in which command history is saved (see
 .SM
 .B HISTORY
-below).  The default value is \fI~/.bash_history\fP.  If unset, the
+below).  The default value is \fI/data/local/.bash_history\fP.  If unset, the
 command history is not saved when an interactive shell exits.
 .TP
 .B HISTFILESIZE
@@ -1984,7 +1984,7 @@ signifies the end of input to the shell.
 The filename for the
 .B readline
 startup file, overriding the default of
-.FN ~/.inputrc
+.FN /data/local/.inputrc
 (see
 .SM
 .B READLINE
@@ -4766,7 +4766,7 @@ The name of this file is taken from the value of the
 .SM
 .B INPUTRC
 variable.  If that variable is unset, the default is
-.IR ~/.inputrc .
+.IR /data/local/.inputrc .
 When a program which uses the readline library starts up, the
 initialization file is read, and the key bindings and variables
 are set.
@@ -6070,7 +6070,7 @@ On startup, the history is initialized from the file named by
 the variable
 .SM
 .B HISTFILE
-(default \fI~/.bash_history\fP).
+(default \fI/data/local/.bash_history\fP).
 The file named by the value of
 .SM
 .B HISTFILE
@@ -9627,16 +9627,16 @@ The \fBbash\fP executable
 .FN /etc/profile
 The systemwide initialization file, executed for login shells
 .TP
-.FN ~/.bash_profile
+.FN /data/local/.bash_profile
 The personal initialization file, executed for login shells
 .TP
-.FN ~/.bashrc
+.FN /data/local/.bashrc
 The individual per-interactive-shell startup file
 .TP
 .FN ~/.bash_logout
 The individual login shell cleanup file, executed when a login shell exits
 .TP
-.FN ~/.inputrc
+.FN /data/local/.inputrc
 Individual \fIreadline\fP initialization file
 .PD
 .SH AUTHORS
