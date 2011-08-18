@@ -43,3 +43,4 @@ txtrst='\e[0m'    # Text Reset
 
 export HOME=$HOME
 export PATH=.:$PATH
+

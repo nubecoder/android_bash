@@ -25,3 +25,4 @@ fi
 
 export PATH=.:$PATH
 export HOME=$HOME
+
