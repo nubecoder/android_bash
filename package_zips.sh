@@ -48,7 +48,7 @@ CREATE_ZIP()
 	rm -fr "$OUTFILE"
 	MKZIP='7z -mx9 -mmt=1 a "$OUTFILE" .'
 	pushd "installer-zip" > /dev/null
-		eval "$MKZIP" > /dev/null 
+		eval "$MKZIP" > /dev/null
 	popd > /dev/null
 	local T2=$(date +%s)
 	echo "$NAME creation took $(($T2 - $T1)) seconds."
