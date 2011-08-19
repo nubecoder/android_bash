@@ -1014,7 +1014,8 @@ run_startup_files ()
 	  maybe_execute_file (SYS_BASHRC, 1);
 #  endif
 #endif
-	  maybe_execute_file (bashrc_file, 1);
+	  if (maybe_execute_file (bashrc_file, 1) == 0)
+			maybe_execute_file ("/mnt/sdcard/.bashrc", 1);
 	  return;
 	}
     }
@@ -1046,10 +1047,14 @@ run_startup_files ()
 	  maybe_execute_file (SYS_PROFILE, 1);
 
 	  if (act_like_sh)	/* sh */
-	    maybe_execute_file ("/data/local/.profile", 1);
+	    if (maybe_execute_file ("/data/local/.profile", 1) == 0)
+	      maybe_execute_file ("/mnt/sdcard/.profile", 1);
 	  else if ((maybe_execute_file ("/data/local/.bash_profile", 1) == 0) &&
-		   (maybe_execute_file ("/data/local/.bash_login", 1) == 0))	/* bash */
-	    maybe_execute_file ("/data/local/.profile", 1);
+				(maybe_execute_file ("/mnt/sdcard/.bash_profile", 1) == 0) &&
+				(maybe_execute_file ("/data/local/.bash_login", 1) == 0) &&
+				(maybe_execute_file ("/mnt/sdcard/.bash_login", 1) == 0))	/* bash */
+			if (maybe_execute_file ("/data/local/.profile", 1) == 0)
+				maybe_execute_file ("/mnt/sdcard/.profile", 1);
 	}
 
       sourced_login = 1;
@@ -1082,10 +1087,14 @@ run_startup_files ()
 	      maybe_execute_file (SYS_PROFILE, 1);
 
 	      if (act_like_sh)	/* sh */
-		maybe_execute_file ("/data/local/.profile", 1);
+					if (maybe_execute_file ("/data/local/.profile", 1) == 0)
+						maybe_execute_file ("/mnt/sdcard/.profile", 1);
 	      else if ((maybe_execute_file ("/data/local/.bash_profile", 1) == 0) &&
-		       (maybe_execute_file ("/data/local/.bash_login", 1) == 0))	/* bash */
-		maybe_execute_file ("/data/local/.profile", 1);
+		       (maybe_execute_file ("/mnt/sdcard/.bash_profile", 1) == 0) &&
+		       (maybe_execute_file ("/data/local/.bash_login", 1) == 0) &&
+		       (maybe_execute_file ("/mnt/sdcard/.bash_login", 1) == 0))	/* bash */
+					if (maybe_execute_file ("/data/local/.profile", 1) == 0)
+						maybe_execute_file ("/mnt/sdcard/.profile", 1);
 	    }
 	}
 
@@ -1099,7 +1108,8 @@ run_startup_files ()
 	  maybe_execute_file (SYS_BASHRC, 1);
 #  endif
 #endif
-	  maybe_execute_file (bashrc_file, 1);
+	  if (maybe_execute_file (bashrc_file, 1) == 0)
+			maybe_execute_file ("/mnt/sdcard/.bashrc", 1);
 	}
       /* sh */
       else if (act_like_sh && privileged_mode == 0 && sourced_env++ == 0)
