@@ -1,7 +1,11 @@
 #!/bin/bash
 #
-
-#defines
+# mod_for_android.sh
+#
+#
+# 2011 nubecoder
+# http://www.nubecoder.com/
+#
 
 #functions
 SPACER()
@@ -59,3 +63,4 @@ echo "Begin bash-4.1"
 MODIFY_FOR_ANDROID "bash-4.1"
 SPACER
 echo "Done."
+exit

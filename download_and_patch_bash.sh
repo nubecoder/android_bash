@@ -1,5 +1,10 @@
 #!/bin/bash
 #
+# download_and_patch_bash.sh
+#
+#
+# 2011 nubecoder
+# http://www.nubecoder.com/
 #
 
 #functions
