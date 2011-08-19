@@ -4,8 +4,8 @@ Bash, cross-compiled and modified for the android platform.
 
 Modifications include:
 
-	Adjusted path of init files (.bashrc, .profile, etc) from '~/' to '/data/local/'.
-	Added support for storing init files on '/mnt/sdcard/' (only used when the files do not exist in '/data/local/'.
-	Some default init files are included as (working) examples.
-	Stripped for size (args used for stripping: '-d --strip-unneeded').
+  Adjusted path of init files (.bashrc, .profile, etc) from '~/' to '/data/local/'.
+  Added support for storing init files on '/mnt/sdcard/' (only used when the files do not exist in '/data/local/'.
+  Some default init files are included as (working) examples.
+  Stripped for size (args used for stripping: '-d --strip-unneeded').
 
