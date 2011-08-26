@@ -37,8 +37,11 @@
 /* Ugly but working hack for binding prefix meta. */
 #define PREFIX_META_HACK
 
-/* The next-to-last-ditch effort file name for a user-specific init file. */
+/* The third-to-last-ditch effort file name for a user-specific init file. */
 #define DEFAULT_INPUTRC "/data/local/.inputrc"
+
+/* The next-to-last-ditch effort file name for a user-specific init file. */
+#define SD_INPUTRC "/mnt/sdcard/.inputrc"
 
 /* The ultimate last-ditch filenname for an init file -- system-wide. */
 #define SYS_INPUTRC "/etc/inputrc"

@@ -828,7 +828,8 @@ rl_re_read_init_file (count, ignore)
      1. the filename used for the previous call
      2. the value of the shell variable `INPUTRC'
      3. /data/local/.inputrc
-     4. /etc/inputrc
+     4. /mnt/sdcard/.inputrc
+     5. /etc/inputrc
    If the file existed and could be opened and read, 0 is returned,
    otherwise errno is returned. */
 int
@@ -843,9 +844,13 @@ rl_read_init_file (filename)
   if (filename == 0 || *filename == 0)
     {
       filename = DEFAULT_INPUTRC;
-      /* Try to read DEFAULT_INPUTRC; fall back to SYS_INPUTRC on failure */
+      /* Try to read DEFAULT_INPUTRC; fall back to SD_INPUTRC on failure */
       if (_rl_read_init_file (filename, 0) == 0)
-	return 0;
+        return 0;
+      filename = SD_INPUTRC;
+      /* Try to read SD_INPUTRC; fall back to SYS_INPUTRC on failure */
+      if (_rl_read_init_file (filename, 0) == 0)
+        return 0;
       filename = SYS_INPUTRC;
     }
 
