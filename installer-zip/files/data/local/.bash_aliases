@@ -29,6 +29,7 @@ alias mv='busybox mv'
 alias rm='busybox rm'
 alias rmdir='busybox rmdir'
 alias rmmod='busybox rmmod'
+alias su='su -c bash'
 alias umount='busybox umount'
 alias vi='busybox vi'
 
