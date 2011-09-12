@@ -47,11 +47,10 @@ ui_print("");
 ui_print("Installing bash shell.");
 ui_print("=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]");
 assert(
-	run_program("/sbin/mount", "/dev/block/stl9", "/system"),
+	run_program("/sbin/busybox", "mount", "/system"),
 	package_extract_file("files/system/bin/bash", "/system/bin/bash")
 	);
 set_perm(2000, 2000, 0755, "/system/bin/bash");
-unmount("/system");
 set_progress(0.33);
 sleep(0.5);
 
@@ -59,16 +58,17 @@ ui_print("");
 ui_print("Installing bash support files.");
 ui_print("=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]");
 assert(
-	run_program("/sbin/mount", "/dev/block/stl9", "/system"),
 	package_extract_file("files/system/etc/bash.bashrc", "/system/etc/bash.bashrc"),
 	package_extract_file("files/system/etc/profile", "/system/etc/profile")
 	);
 set_perm(2000, 2000, 0755, "/system/etc/bash.bashrc");
 set_perm(2000, 2000, 0755, "/system/etc/profile");
-unmount("/system");
+assert(
+	run_program("/sbin/busybox", "umount", "/system")
+	);
 set_progress(0.66);
 assert(
-	run_program("/sbin/mount", "/dev/block/stl10", "/data"),
+	run_program("/sbin/busybox", "mount", "/data"),
 	package_extract_file("files/data/local/.bash_aliases", "/data/local/.bash_aliases"),
 	package_extract_file("files/data/local/.bashrc", "/data/local/.bashrc"),
 	package_extract_file("files/data/local/.inputrc", "/data/local/.inputrc"),
@@ -78,7 +78,9 @@ set_perm(2000, 2000, 0755, "/data/local/.bash_aliases");
 set_perm(2000, 2000, 0755, "/data/local/.bashrc");
 set_perm(2000, 2000, 0755, "/data/local/.inputrc");
 set_perm(2000, 2000, 0755, "/data/local/.profile");
-unmount("/data");
+assert(
+	run_program("/sbin/busybox", "umount", "/data")
+	);
 set_progress(0.99);
 sleep(0.5);
 
