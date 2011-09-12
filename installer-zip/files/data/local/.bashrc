@@ -34,11 +34,11 @@ shopt -s checkwinsize
 PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
 # Red prompt when in a root shell
 if [ ${EUID} -eq 0 ]; then
-	#PS1="\[$txtred\][\t \u@\h\[\e[m\] \[$txtblu\]\W\[\e[m\]\[$txtred\]]# \[\e[m\]"
-	PS1="\[$txtred\][\t\[\e[m\] \[$txtblu\]\W\[\e[m\]\[$txtred\]]# \[\e[m\]"
+	PS1="\[$txtred\][\h\[\e[m\] \[$txtblu\]\w\[\e[m\]\[$txtred\]]# \[\e[m\]"
+	#PS1="\[$txtred\][\t\[\e[m\] \[$txtblu\]\w\[\e[m\]\[$txtred\]]# \[\e[m\]"
 else
-	#PS1="\[$txtgrn\][\t \u@\h\[\e[m\] \[$txtblu\]\W\[\e[m\]\[$txtgrn\]]$ \[\e[m\]"
-	PS1="\[$txtgrn\][\t\[\e[m\] \[$txtblu\]\W\[\e[m\]\[$txtgrn\]]$ \[\e[m\]"
+	PS1="\[$txtgrn\][\h\[\e[m\] \[$txtblu\]\w\[\e[m\]\[$txtgrn\]]$ \[\e[m\]"
+	#PS1="\[$txtgrn\][\t\[\e[m\] \[$txtblu\]\w\[\e[m\]\[$txtgrn\]]$ \[\e[m\]"
 fi
 PS2='> '
 PS4='+ '
