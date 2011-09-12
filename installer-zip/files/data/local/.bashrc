@@ -45,9 +45,13 @@ PS4='+ '
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
-# /data/local/.bash_aliases, instead of adding them here directly.
+# /data/local/.bash_aliases or /sdcard/.bash_aliases, instead of adding them here directly.
 
 if [ -f /data/local/.bash_aliases ]; then
 	. /data/local/.bash_aliases
+fi
+
+if [ -f /sdcard/.bash_aliases ]; then
+	. /sdcard/.bash_aliases
 fi
 
