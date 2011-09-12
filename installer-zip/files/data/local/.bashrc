@@ -48,10 +48,10 @@ PS4='+ '
 # /data/local/.bash_aliases or /sdcard/.bash_aliases, instead of adding them here directly.
 
 if [ -f /data/local/.bash_aliases ]; then
-	. /data/local/.bash_aliases
+	source /data/local/.bash_aliases
 fi
 
 if [ -f /sdcard/.bash_aliases ]; then
-	. /sdcard/.bash_aliases
+	source /sdcard/.bash_aliases
 fi
 
