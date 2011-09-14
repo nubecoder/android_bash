@@ -1,7 +1,3 @@
-# This script is designed for Samsung SPH-D700 (Epic 4G).
-assert(getprop("ro.product.device") == "SPH-D700" ||
-	getprop("ro.build.product") == "SPH-D700");
-
 ui_print("");ui_print("");ui_print("");ui_print("");ui_print("");
 ui_print("");ui_print("");ui_print("");ui_print("");ui_print("");
 ui_print("                               =]=]=]");
