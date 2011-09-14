@@ -1,6 +1,13 @@
-android_bash
+#
+# android_bash
+#
+# 2011 nubecoder
+# www.nubecoder.com/
+#
 
-Bash, cross-compiled and modified for the android platform.
+Project info:
+
+  Bash, cross-compiled and modified for the android platform.
 
 Modifications include:
 
