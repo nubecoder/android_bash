@@ -57,8 +57,8 @@ assert(
 	package_extract_file("files/system/etc/bash.bashrc", "/system/etc/bash.bashrc"),
 	package_extract_file("files/system/etc/profile", "/system/etc/profile")
 	);
-set_perm(2000, 2000, 0755, "/system/etc/bash.bashrc");
-set_perm(2000, 2000, 0755, "/system/etc/profile");
+set_perm(0, 0, 0755, "/system/etc/bash.bashrc");
+set_perm(0, 0, 0755, "/system/etc/profile");
 assert(
 	run_program("/sbin/busybox", "umount", "/system")
 	);
