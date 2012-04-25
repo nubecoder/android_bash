@@ -1,20 +1,21 @@
 #!/bin/bash
 #
-# build_bash_arm.sh
+# build_bash.sh
 #
 #
 # 2011 nubecoder
 # http://www.nubecoder.com/
 #
 
-TOOLCHAIN="arm-2011.03-41"
-#TOOLCHAIN="arm-2010.09-50"
-#TOOLCHAIN="arm-2009q3-67"
-export CC="/home/nubecoder/android/kernel_dev/toolchains/$TOOLCHAIN/bin/arm-none-linux-gnueabi-gcc"
+# defines
+CROSS_COMPILE="/home/nubecoder/android/toolchains/arm-none-linux-gnueabi-2011.03-41/bin/arm-none-linux-gnueabi-"
+
+# exports
+export CC="${CROSS_COMPILE}gcc"
 export CFLAGS="-g -O2 -static"
 
 # variables
-CC_STRIP="/home/nubecoder/android/kernel_dev/toolchains/$TOOLCHAIN/bin/arm-none-linux-gnueabi-strip"
+CC_STRIP="${CROSS_COMPILE}strip -d --strip-unneeded"
 
 # defaults
 THREADS=$(expr 1 + $(grep processor /proc/cpuinfo | wc -l))
@@ -90,7 +91,7 @@ STRIP_BASH()
 		echo "Bash found, stripping for size..."
 		VERSION=$(strings bash | egrep -Ei '^.+Bash\sversion\s.+' | egrep -oEi '[0-9]+\.[0-9]+\.[0-9]+\([0-9]+\)')
 		cp -f bash android_bash-"$VERSION"
-		$CC_STRIP -d --strip-unneeded android_bash-"$VERSION"
+		$CC_STRIP android_bash-"$VERSION"
 		mv -f android_bash-"$VERSION" ../android_bash-"$VERSION"
 	else
 		ERR_MSG="ERROR:: Bash was not found!"
@@ -115,6 +116,10 @@ BUILD_BASH()
 	echo "=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]=]"
 	SPACER
 }
+NOTIFY_COMPLETED()
+{
+	aplay notify.wav >/dev/null 2>&1
+}
 DO_ALL()
 {
 	echo "building $1"
@@ -130,5 +135,6 @@ START_SCRIPT
 DO_ALL "bash-3.2"
 DO_ALL "bash-4.0"
 DO_ALL "bash-4.1"
+NOTIFY_COMPLETED
 SHOW_COMPLETED
 
