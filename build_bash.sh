@@ -15,7 +15,7 @@ export CC="${CROSS_COMPILE}gcc"
 export CFLAGS="-g -O2 -static"
 
 # variables
-CC_STRIP="${CROSS_COMPILE}strip -d --strip-unneeded"
+CC_STRIP="${CROSS_COMPILE}strip -s"
 
 # defaults
 THREADS=$(expr 1 + $(grep processor /proc/cpuinfo | wc -l))
